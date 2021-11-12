@@ -1,0 +1,61 @@
+<html>
+	<head th:replace="~{base :: head('Formulário')}"></head>
+	<body>
+		<nav class="container-fluid">
+			<div class="row justify-content-between navbar navbar logo">
+				<div class="col-11">
+					<span class="navbar-brand">LifeInvader</span>
+				</div>
+				<div class="col-1">
+					<a onclick="document.querySelector('#form-login').submit()"
+						class="text-light" href="#">Sair</a>
+					<form id="form-login" th:action="@{/logout}" method="post"></form>
+		  		</div>
+		    </div>
+		</nav>
+		<div class="container">		
+			<div class="card mt-3">
+				<form th:object="${respVaga}" class="card-body" th:action="@{/vaga/novo}" method="post">
+					
+					
+					<div class="mb-2">
+						<label for="titulo">Nome da Vaga/Treinamente*</label>
+						<input th:field="*{titulo}" th:errorclass="is-invalid" class="form-control" placeholder="Nome da vaga /treinamente" />
+						<div th:errors="*{titulo}" class="invalid-feedback">
+							Erros com o nome do produto
+						</div>
+					</div>
+					
+					
+					<div class="mb-2">
+						<label for="url">url*</label>
+						<input th:field="*{url}" th:errorclass="is-invalid" class="form-control" placeholder="cole a url da vaga/treinamento aqui" />
+	
+						<div th:errors="*{url}" class="invalid-feedback">
+							Erros com a url do produto
+						</div>
+					</div>
+					
+					
+					<div class="mb-2">
+						<label for="curso">Curso*</label>
+						<input th:field="*{curso}" th:errorclass="is-invalid" class="form-control" placeholder="Informe o curso relacionado a vaga/treinamento" />
+						<small>Favor informar o nome do curso corretamente</small>
+						<div th:errors="*{curso}" class="invalid-feedback">
+							Erros com a url da imagem
+						</div>
+					</div>
+					
+					
+					<div class="mb-2">
+						<label for="descricao">Descrição</label>
+						<textarea class="form-control" th:field="*{descricao}" placeholder="Adicione detalhes importantes da vaga/treinamento" ></textarea>
+					</div>
+					
+					<button class="btn btn-primary" type="submit">Cadastrar</button>
+					<button type="button" class="btn btn-outline-secondary" onclick="window.location.replace('http://localhost:8080/home')">Cancelar</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{base :: head('Cadastrar')}">
+	</head>
+	<body class="imagem">
+		<nav th:replace="~{base :: navbar}"></nav>
+		<div class="container-sm">
+			<div class="card caixa mt-3 mb-5">
+				<form th:object="${respUser}" class="card-body" th:action="@{/cadastrar/novo}" method="post">
+					
+					
+					<div class="mb-2">
+						<label for="nome">Nome Completo*</label>
+						<input th:field="*{nome}"  th:errorclass="is-invalid" class="form-control" placeholder="Digite seu nome completo" />
+						<div th:errors="*{nome}" class="invalid-feedback">
+							Erros com o nome do produto
+						</div>
+					</div>
+					
+					<div class="mb-2">
+						<label for="username">Matricula*</label>
+						<input th:field="*{username}" th:errorclass="is-invalid" class="form-control" placeholder="Digite sua matricula" />
+						<div th:errors="*{username}" class="invalid-feedback">
+							Erros com o nome do produto
+						</div>
+					</div>
+					
+					<div class="mb-2">
+						<label for="password">senha*</label>
+						<input th:field="*{password}" th:errorclass="is-invalid" type="password" class="form-control" placeholder="Digite uma senha forte" />
+						<div th:errors="*{password}" class="invalid-feedback">
+							Erros com o nome do produto
+						</div>
+					</div>
+					
+					<div class="mb-2">
+						<label for="email">e-mail*</label>
+						<input th:field="*{email}" th:errorclass="is-invalid" class="form-control" placeholder="Digite seu e-mail" />
+						<div th:errors="*{email}" class="invalid-feedback">
+							Erros com o nome do produto
+						</div>
+					</div>
+					
+					<div class="mb-2">
+						<label for="curso">Curso*</label>
+						<input th:field="*{curso}" th:errorclass="is-invalid" class="form-control" placeholder="Digite seu curso" />
+						<small>Favor digitar corretamente o nome completo do curso</small>
+						<div th:errors="*{curso}" class="invalid-feedback">
+							Erros com o nome do produto
+						</div>
+					</div>
+					
+					<button type="button" class="btn btn-outline-secondary botao" onclick="window.location.replace('http://localhost:8080/login')">Cancelar</button>
+					<button class="btn btn-danger botao" type="submit">Cadastrar</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

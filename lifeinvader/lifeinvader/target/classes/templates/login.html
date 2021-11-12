@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	
+	<head th:replace="~{base :: head('LifeInvader')}"></head>
+	<body>
+		<nav th:replace="~{base :: navbar}"></nav>
+		<div class="container-fluid imagens" style="height: 100%;">
+			<div class="container-sm d-flex justify-content-center" >
+			<div class="row card caixaLogin" style="width: 50%;">
+				<h1>Entrar</h1>
+	        	<div class="aviso" th:if="${param.error}">
+	          		Usuário/senha está incorreto.
+	            </div>
+				<form th:action="@{/login}" class="card-body" method="post">
+					<div class="mb-2">
+						<label for="username"  >Usuário*</label>
+						<input name="username" class="form-control" id="usernameId" placeholder="Usuário" />
+					</div>
+					<div class="mb-2">
+						<label for="password">Senha*</label>
+						<input type="password" name="password" class="form-control" id="passwordId" placeholder="Senha" />
+					</div>
+					<button class="btn btn-danger botao" type="submit">Entrar</button>
+				</form>	
+			</div>
+		</div>
+		<div class="container-sm mt-4 d-flex justify-content-center">
+			<div class="row">
+				<div class="col">
+					<small>Ainda não tem conta?</small></br>
+					<a class="cadas text-danger" href="/cadastrar">Cadastrar-se</a>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>
