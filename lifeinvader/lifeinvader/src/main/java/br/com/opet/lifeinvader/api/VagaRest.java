@@ -24,7 +24,7 @@ public class VagaRest {
 	@Autowired
 	private UserRepository userRepository; 
 	
-	
+	//teste de commit para o git
 	
 	@GetMapping("vaga")
 	public List<Vaga> getVagas() {
